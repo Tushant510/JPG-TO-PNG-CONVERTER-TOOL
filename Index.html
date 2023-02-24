@@ -1,0 +1,22 @@
+// Get the JPG image
+var img = new Image();
+img.src = "image.jpg";
+
+// Create a canvas element
+var canvas = document.createElement("canvas");
+canvas.width = img.width;
+canvas.height = img.height;
+
+// Draw the image on the canvas
+var ctx = canvas.getContext("2d");
+ctx.drawImage(img, 0, 0);
+
+// Convert the canvas to PNG
+var pngData = canvas.toDataURL("image/png");
+
+// Create a new image element with the PNG data
+var newImg = new Image();
+newImg.src = pngData;
+
+// Add the new image to the page
+document.body.appendChild(newImg);
